@@ -1,12 +1,11 @@
 {
-  "name": "ng-bootstrap",
+  "name": "ng-bootstrap-alpha-fixed",
   "version": "1.0.0-alpha.16.1",
   "description": "Angular 2 powered Bootstrap",
   "keywords": "Angular 2 Angular2 Bootstrap autocomplete accordion alert buttons carousel collapse dropdown pagination popover progressbar rating tabset timepicker tooltip typeahead",
   "author": "https://github.com/ng-bootstrap/ng-bootstrap/graphs/contributors",
   "main": "dist/index.js",
   "scripts": {
-    "install": "node misc/validate-commit.install.js",
     "test": "karma start karma.conf.js",
     "api-doc-tdd": "jasmine-node misc/api-doc.spec.js --autotest --watch misc/api-doc-test-cases/*.ts misc/api-doc.js"
   },
