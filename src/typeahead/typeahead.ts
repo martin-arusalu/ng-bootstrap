@@ -234,7 +234,7 @@ export class NgbTypeahead implements ControlValueAccessor,
       this._windowRef = this._popupService.open();
       this._windowRef.instance.selectEvent.subscribe((result: any) => {
         this._selected = true;
-        return this._selectResultClosePopup(result)
+        return this._selectResultClosePopup(result);
       });
     }
   }
