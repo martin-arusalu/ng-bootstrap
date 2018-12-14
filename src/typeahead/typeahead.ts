@@ -81,6 +81,7 @@ export class NgbTypeahead implements ControlValueAccessor,
   private _valueChanges: Observable<string>;
   private _windowRef: ComponentRef<NgbTypeaheadWindow>;
   private _zoneSubscription: any;
+  private _selected: boolean;
 
 
   /**
@@ -135,6 +136,7 @@ export class NgbTypeahead implements ControlValueAccessor,
     this.editable = config.editable;
     this.focusFirst = config.focusFirst;
     this.showHint = config.showHint;
+    this._selected = false;
 
     this._valueChanges = Observable.fromEvent(_elementRef.nativeElement, 'input', ($event) => $event.target.value);
 
@@ -227,9 +229,13 @@ export class NgbTypeahead implements ControlValueAccessor,
   }
 
   private _openPopup() {
+    this._selected = false;
     if (!this._windowRef) {
       this._windowRef = this._popupService.open();
-      this._windowRef.instance.selectEvent.subscribe((result: any) => this._selectResultClosePopup(result));
+      this._windowRef.instance.selectEvent.subscribe((result: any) => {
+        this._selected = true;
+        return this._selectResultClosePopup(result)
+      });
     }
   }
 
@@ -278,7 +284,7 @@ export class NgbTypeahead implements ControlValueAccessor,
 
   private _subscribeToUserInput(userInput$: Observable<any[]>): Subscription {
     return userInput$.subscribe((results) => {
-      if (!results || results.length === 0) {
+      if (!results || results.length === 0 || this._selected) {
         this._closePopup();
       } else {
         this._openPopup();
