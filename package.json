@@ -1,5 +1,5 @@
 {
-  "name": "ng-bootstrap-alpha-fixed",
+  "name": "@ng-bootstrap/ng-bootstrap-alpha-fixed",
   "version": "1.0.0-alpha.16.3",
   "description": "Angular 2 powered Bootstrap",
   "keywords": "Angular 2 Angular2 Bootstrap autocomplete accordion alert buttons carousel collapse dropdown pagination popover progressbar rating tabset timepicker tooltip typeahead",
